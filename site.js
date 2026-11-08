@@ -1,4 +1,4 @@
-﻿/* Сцена сайта: появление блоков, прогресс, прожектор, наклон карточек, пыль, занавес.
+/* Сцена сайта: появление блоков, прогресс, прожектор, наклон карточек, пыль, занавес.
    Без библиотек. Всё движение отключается при prefers-reduced-motion. */
 (() => {
   "use strict";
@@ -349,8 +349,8 @@
     }, { passive: true });
   }
 
-  /* 10.5 пул обрывков: тексты перемешиваются, два ложатся в секцию, остальные разлетаются по полям */
-  const NOTE_POOL = [
+  /* 10.5 пул вывесок: тексты перемешиваются, две горят в секции, остальные разлетаются по полям */
+  const SIGN_POOL = [
     { kicker: "the old code", lines: [
       "↑↑↓↓←→←→BA. Старый код всё ещё работает.",
       "Проверь на клавиатуре, если не веришь.",
@@ -358,13 +358,13 @@
     { kicker: "found backstage", lines: [
       "Я дорожаю как хаты или как в маке соус, а.",
       "Я дорожая как тачки, и как в принципе всё у нас.",
-      "И только ты всё также <span class=\"note-drag\">эээ</span>, короче, <b class=\"note-hot\">ты лох</b>, ебать",
+      "И только ты всё также <span class=\"sign-drag\">эээ</span>, короче, <b class=\"sign-hot\">ты лох</b>, ебать",
     ] },
     { kicker: "page two, same night", lines: [
-      { text: "Малышка, не пойти бы тебе нахуй?", cls: "note-yell" },
+      { text: "Малышка, не пойти бы тебе нахуй?", cls: "sign-yell" },
       "По твоим глазам и так понятно то, что тебе надо.",
       "Я знаю то, что я неадекватный.",
-      "Я был в аду, вернулся и <b class=\"note-hot\">ушёл туда обратно</b>.",
+      "Я был в аду, вернулся и <b class=\"sign-hot\">ушёл туда обратно</b>.",
     ] },
     { kicker: "torn from the call sheet", lines: [
       "Свет - по счёту.",
@@ -377,19 +377,19 @@
     ] },
     { kicker: "found in the ticket booth", lines: [
       "Мне не нужна твоя жалость.",
-      "Мне нужен твой <b class=\"note-hot\">билет</b>.",
+      "Мне нужен твой <b class=\"sign-hot\">билет</b>.",
     ] },
     { kicker: "left on the prop table", lines: [
       "Не трогай кулисы.",
-      "<span class=\"note-drag\">Они</span> трогают в ответ.",
+      "<span class=\"sign-drag\">Они</span> трогают в ответ.",
     ] },
     { kicker: "half-burned", lines: [
       "Здесь улыбаются за деньги.",
-      "Остальное - <b class=\"note-hot\">бонус</b>.",
+      "Остальное - <b class=\"sign-hot\">бонус</b>.",
     ] },
     { kicker: "stage manager's copy", lines: [
       "Ты думал, это шутка?",
-      "Шутка - <b class=\"note-hot\">ты</b>.",
+      "Шутка - <b class=\"sign-hot\">ты</b>.",
     ] },
     { kicker: "costume note", lines: [
       "Кровь на костюме - часть реквизита.",
@@ -473,81 +473,84 @@
     return list;
   };
 
-  const fillNote = (note, data) => {
-    const kicker = note.querySelector(".note-kicker");
-    if (kicker) kicker.textContent = data.kicker;
-    const sign = note.querySelector(".note-sign");
-    note.querySelectorAll(".note-line").forEach((line) => line.remove());
+  const fillSign = (sign, data) => {
+    const plate = sign.querySelector(".sign-plate");
+    if (plate) plate.textContent = data.kicker;
+    const signature = sign.querySelector(".sign-sign");
+    sign.querySelectorAll(".sign-line").forEach((line) => line.remove());
     data.lines.forEach((line) => {
       const text = typeof line === "string" ? line : line.text;
       const cls = typeof line === "string" ? "" : (line.cls || "");
       const p = document.createElement("p");
-      p.className = cls ? "note-line " + cls : "note-line";
+      p.className = cls ? "sign-line " + cls : "sign-line";
       p.innerHTML = text;
-      note.insertBefore(p, sign);
+      sign.insertBefore(p, signature);
     });
   };
 
-  const pool = shuffle(NOTE_POOL.slice());
+  const pool = shuffle(SIGN_POOL.slice());
   const railPicked = [];
   let usedCount = 0;
 
-  document.querySelectorAll(".notes-rail .note").forEach((note) => {
+  const railSigns = document.querySelectorAll(".signs-rail .neon-sign");
+  if (railSigns.length) document.documentElement.classList.add("signs-visible");
+  railSigns.forEach((sign) => {
     if (usedCount >= pool.length) return;
-    fillNote(note, pool[usedCount]);
+    fillSign(sign, pool[usedCount]);
     railPicked.push(pool[usedCount]);
     usedCount += 1;
   });
 
-  /* облако: двенадцать листов, разбросанных по полям страницы */
+  /* облако: двенадцать вывесок, разбросанных по полям страницы.
+     берём только короткие записи, чтобы мелкая вывеска не превращалась в абзац */
+  const cloudFriendly = (item) => {
+    if (item.lines.length > 3) return false;
+    const text = item.lines.map((line) => (typeof line === "string" ? line : line.text)).join(" ");
+    return text.length <= 110;
+  };
+  const cloudPool = shuffle(pool.filter((item) => !railPicked.includes(item) && cloudFriendly(item)));
+  const cloudCandidates = SIGN_POOL.filter(cloudFriendly);
   const pageMain = document.querySelector("main");
   const floats = [];
   let relayout = () => {};
-  if (pageMain && railPicked.length) {
+  if (pageMain && railPicked.length && cloudPool.length) {
     const cloud = document.createElement("div");
-    cloud.className = "notes-cloud";
+    cloud.className = "signs-cloud";
     cloud.setAttribute("aria-hidden", "true");
-    document.documentElement.classList.add("notes-visible");
     pageMain.appendChild(cloud);
-    for (let i = 0; i < 12 && usedCount < pool.length; i += 1) {
+    const variants = ["", "neon-sign--rose", "neon-sign--bone"];
+    for (let i = 0; i < 12 && i < cloudPool.length; i += 1) {
       const float = document.createElement("div");
-      float.className = "note-float";
+      float.className = "sign-float";
       const side = i % 2 === 0 ? "left" : "right";
       if (side === "left") float.style.left = "1.8vw";
       else float.style.right = "1.8vw";
       const shell = document.createElement("div");
-      shell.className = "note-shell";
-      shell.style.transform = "rotate(" + (Math.random() * 5 - 2.5).toFixed(2) + "deg)";
-      const tape = document.createElement("span");
-      tape.className = "note-tape";
-      tape.setAttribute("aria-hidden", "true");
-      const note = document.createElement("div");
-      note.className = "note";
-      note.setAttribute("role", "note");
-      if (i % 3 === 0) {
-        const scratch = document.createElement("span");
-        scratch.className = "note-scratch";
-        scratch.setAttribute("aria-hidden", "true");
-        note.appendChild(scratch);
-      }
-      const kicker = document.createElement("span");
-      kicker.className = "note-kicker";
-      note.appendChild(kicker);
-      const sign = document.createElement("p");
-      sign.className = "note-sign";
-      sign.textContent = "Cease Neverly";
-      note.appendChild(sign);
-      fillNote(note, pool[usedCount]);
-      shell.appendChild(tape);
-      shell.appendChild(note);
+      shell.className = "sign-shell";
+      shell.style.transform = "rotate(" + (Math.random() * 4 - 2).toFixed(2) + "deg)";
+      const mount = document.createElement("span");
+      mount.className = "sign-mount";
+      mount.setAttribute("aria-hidden", "true");
+      const sign = document.createElement("div");
+      const variant = variants[i % variants.length];
+      sign.className = variant ? "neon-sign " + variant : "neon-sign";
+      const plate = document.createElement("span");
+      plate.className = "sign-plate";
+      sign.appendChild(plate);
+      const signature = document.createElement("p");
+      signature.className = "sign-sign";
+      signature.textContent = "Cease Neverly";
+      sign.appendChild(signature);
+      fillSign(sign, cloudPool[i]);
+      shell.appendChild(mount);
+      shell.appendChild(sign);
       float.appendChild(shell);
       cloud.appendChild(float);
-      floats.push({ note, float, side, index: usedCount });
-      usedCount += 1;
+      floats.push({ sign, float, side, data: cloudPool[i] });
     }
 
-    /* раскладываем листы по высоте так, чтобы на одной стороне они не наезжали друг на друга */
-    const railShells = Array.from(document.querySelectorAll(".notes-rail .note-shell"));
+    /* раскладываем вывески по высоте так, чтобы на одной стороне они не наезжали друг на друга */
+    const railShells = Array.from(document.querySelectorAll(".signs-rail .sign-shell"));
     const layoutFloats = () => {
       const total = pageMain.offsetHeight;
       const mainTop = pageMain.getBoundingClientRect().top;
@@ -556,7 +559,7 @@
         const r = shell.getBoundingClientRect();
         if (!r.height) return;
         const sideName = r.left + r.width / 2 < innerWidth / 2 ? "left" : "right";
-        blocked[sideName].push({ top: r.top - mainTop - 20, bottom: r.bottom - mainTop + 20 });
+        blocked[sideName].push({ top: r.top - mainTop - 36, bottom: r.bottom - mainTop + 36 });
       });
       ["left", "right"].forEach((sideName) => {
         const sideFloats = floats.filter((f) => f.side === sideName);
@@ -594,46 +597,46 @@
     if ("ResizeObserver" in window) new ResizeObserver(relayout).observe(pageMain);
   }
 
-  /* на широких экранах один обрывок раз в несколько секунд меняет текст */
+  /* на широких экранах одна вывеска раз в несколько секунд меняет текст */
   if (floats.length && !reduced) {
     setInterval(() => {
       const slot = floats[Math.floor(Math.random() * floats.length)];
-      const roll = Math.floor(Math.random() * NOTE_POOL.length);
-      const next = NOTE_POOL[roll];
-      const usedNow = new Set(railPicked.concat(floats.map((f) => pool[f.index])));
-      if (usedNow.has(next) || next === pool[slot.index]) return;
-      slot.note.classList.add("is-fading");
+      const roll = Math.floor(Math.random() * cloudCandidates.length);
+      const next = cloudCandidates[roll];
+      const usedNow = new Set(railPicked.concat(floats.map((f) => f.data)));
+      if (usedNow.has(next) || next === slot.data) return;
+      slot.sign.classList.add("is-fading");
       setTimeout(() => {
-        fillNote(slot.note, next);
-        pool[slot.index] = next;
-        slot.note.classList.remove("is-fading");
+        fillSign(slot.sign, next);
+        slot.data = next;
+        slot.sign.classList.remove("is-fading");
         relayout();
       }, 380);
     }, 9000);
   }
 
-  /* 11. обрывки записок на главной: строки и подпись проявляются одна за другой */
-  document.querySelectorAll(".note").forEach((note) => {
-    const noteLines = note.querySelectorAll(".note-line");
-    const noteSign = note.querySelector(".note-sign");
+  /* 11. неоновые вывески на главной: строки и подпись зажигаются одна за другой */
+  document.querySelectorAll(".neon-sign").forEach((sign) => {
+    const signLines = sign.querySelectorAll(".sign-line");
+    const signature = sign.querySelector(".sign-sign");
     const revealSign = () => {
-      if (noteSign) setTimeout(() => noteSign.classList.add("on"), 260 + noteLines.length * 380);
+      if (signature) setTimeout(() => signature.classList.add("on"), 260 + signLines.length * 380);
     };
     if ("IntersectionObserver" in window && !reduced) {
-      const noteIO = new IntersectionObserver((entries) => {
+      const signIO = new IntersectionObserver((entries) => {
         entries.forEach((e) => {
           if (!e.isIntersecting) return;
-          noteIO.unobserve(e.target);
-          noteLines.forEach((line, i) => {
+          signIO.unobserve(e.target);
+          signLines.forEach((line, i) => {
             setTimeout(() => line.classList.add("on"), 260 + i * 380);
           });
           revealSign();
         });
       }, { threshold: .3 });
-      noteIO.observe(note);
+      signIO.observe(sign);
     } else {
-      noteLines.forEach((line) => line.classList.add("on"));
-      if (noteSign) noteSign.classList.add("on");
+      signLines.forEach((line) => line.classList.add("on"));
+      if (signature) signature.classList.add("on");
     }
   });
   /* 12. ночной режим: после 22:00 включается сам, но кнопка важнее расписания */
@@ -951,7 +954,7 @@
     size();
   })();
 
-  /* 18. охота за записками: пять бумажек по страницам и счётчик находок */
+  /* 18. охота за неоном: пять спрятанных вывесок по страницам и счётчик находок */
   (() => {
     const KEY = "cs-hunt-found";
     const PAGES = {
@@ -1002,17 +1005,17 @@
     };
     const paintCount = () => {
       const done = read().length;
-      countEl.textContent = "записки " + done + " / " + total;
+      countEl.textContent = "вывески " + done + " / " + total;
       countEl.classList.toggle("is-complete", done >= total);
-      countEl.setAttribute("title", done >= total ? "Открыть пятую записку" : "Ищи записки на страницах сайта");
+      countEl.setAttribute("title", done >= total ? "Открыть последнюю вывеску" : "Ищи неоновые вывески на страницах сайта");
     };
     const final = document.createElement("div");
     final.className = "hunt-final";
-    final.innerHTML = '<div class="hunt-final-paper" role="dialog" aria-modal="true" aria-label="Secret note">' +
+    final.innerHTML = '<div class="hunt-final-sign" role="dialog" aria-modal="true" aria-label="Neon sign: all five lit">' +
       '<p class="hunt-final-kicker">five of five &middot; after hours</p>' +
-      "<h2>Все пять</h2>" +
-      "<p>You found every note. The show never stops, so neither do you.</p>" +
-      '<p class="ru">Ты нашёл все записки. Шоу не останавливается - и ты тоже. Добро пожаловать в труппу, киска.</p>' +
+      "<h2>Все пять горят.</h2>" +
+      "<p>You lit every sign. The show never stops, so neither do you.</p>" +
+      '<p class="ru">Ты зажёг все пять. Шоу не останавливается - и ты тоже. Добро пожаловать в труппу, киска.</p>' +
       '<button class="hunt-final-close" type="button">Закрыть</button></div>';
     document.body.appendChild(final);
     const closeFinal = () => final.classList.remove("is-on");
@@ -1038,9 +1041,9 @@
     };
     const note = document.createElement("button");
     note.type = "button";
-    note.className = "hunt-note";
-    note.textContent = "записка";
-    note.setAttribute("aria-label", "Спрятанная записка");
+    note.className = "hunt-sign";
+    note.textContent = "OPEN";
+    note.setAttribute("aria-label", "Спрятанная неоновая вывеска");
     if (read().indexOf(key) >= 0) note.classList.add("is-found");
     const spot = place();
     if (spot) {

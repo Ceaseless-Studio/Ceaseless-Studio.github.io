@@ -65,17 +65,23 @@ html.night::after {
   background: radial-gradient(125% 95% at 50% 38%, transparent 42%, rgba(0, 0, 0, .46) 100%);
 }
 
-/* записки ночью темнее, кровь злее */
-html.night .note {
-  background: linear-gradient(158deg, #e6dcc6 0%, #d7cbb2 56%, #c6b99f 100%) !important;
+/* вывески ночью горят жарче: фон уходит в чёрное, трубки светятся ярче */
+html.night .neon-sign {
+  border-color: rgba(255, 120, 96, .24);
 }
 
-html.night .note::after {
-  filter: saturate(1.25) brightness(.92);
+html.night .sign-line,
+html.night .sign-yell,
+html.night .sign-hot { color: #ffe1d9; }
+
+html.night .sign-sign { color: #ffc9c0; }
+
+html.night .sign-plate {
+  border-color: #493c3f;
+  color: #d8c4c0;
 }
 
-html.night .note-line,
-html.night .note-sign { color: #1d1512; }
+html.night .hunt-final-sign { border-color: rgba(255, 120, 96, .34); }
 
 @media (max-width: 720px) {
   .night-toggle { width: 28px; height: 28px; font-size: .9rem; }
