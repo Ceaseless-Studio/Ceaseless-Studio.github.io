@@ -958,7 +958,7 @@
   (() => {
     const KEY = "cs-hunt-found";
     const PAGES = {
-      "index.html": { anchor: ".flyer-section", dx: -128, dy: 30, text: "Билет без номера. Ты уже в списке." },
+      "index.html": { anchor: ".flyer-section", dx: -128, dy: 30, mdx: -2, mdy: 2, text: "Билет без номера. Ты уже в списке." },
       "ceaseless-bot.html": { anchor: ".contract-paper", dx: -128, dy: 34, text: "О клетке не говорят. Но ты нашёл." },
       "maria.html": { anchor: ".chat-demo", dx: -120, dy: 20, text: "Мария всё видит. Даже это." },
       "driven-by-desire.html": { anchor: ".dbd-poster", dx: -128, dy: 20, text: "Занавес падал. Ты стоял." },
@@ -1034,9 +1034,12 @@
       if (!anchor) return null;
       const box = anchor.getBoundingClientRect();
       const base = main.getBoundingClientRect();
+      const narrow = window.innerWidth <= 720;
+      const dx = narrow && config.mdx !== undefined ? config.mdx : config.dx;
+      const dy = narrow && config.mdy !== undefined ? config.mdy : config.dy;
       return {
-        left: Math.max(6 - base.left, Math.min(window.innerWidth - base.left - 112, box.left - base.left + config.dx)),
-        top: box.top - base.top + config.dy,
+        left: Math.max(6 - base.left, Math.min(window.innerWidth - base.left - 112, box.left - base.left + dx)),
+        top: box.top - base.top + dy,
       };
     };
     const note = document.createElement("button");

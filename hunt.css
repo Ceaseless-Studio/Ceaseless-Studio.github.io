@@ -264,6 +264,19 @@
   }
 }
 
+@media (max-width: 720px) {
+  .hunt-sign {
+    width: 74px;
+    height: 52px;
+  }
+
+  .hunt-sign::before {
+    width: 32px;
+    height: 7px;
+    top: -6px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hunt-sign {
     animation: none;

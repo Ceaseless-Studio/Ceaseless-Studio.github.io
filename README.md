@@ -34,7 +34,7 @@ The source of the Ceaseless Studio website: a static page set served by GitHub P
 | `contract.css` | The performers agreement on the bot page: paper, terms and a canvas to sign in blood |
 | `maria-chat.css` | The demo chat with Maria on her page: purple panel, bubbles, quick asks and a typing indicator |
 | `fortune.css` | The fortune card: a face-down deck that flips on click and answers in English and Russian |
-| `flyer.css` | The club flyer at the bottom of the home page: dark torn paper, neon crimson title, the track lyric and the stuck chorus |
+| `flyer.css` | The club flyer at the bottom of the home page: a smoked-acrylic neon lightbox, a metal bracket, the track lyric and the stuck chorus |
 | `site.js` | Scene effects: reveal, read progress, medallion parallax and tilt, cursor light, card tilt, dust, opening curtain, EN/RU switch, playing-card cursor trail, neon sign ignition, night mode, first-visit ticket, footer applause sign, the bilingual fortune card, the demo Maria chat, the blood-signature contract |
 | `assets/` | Banner, key art, tier icons, Driven By Desire art |
 
@@ -66,7 +66,7 @@ Everything moves on `transform`/`opacity` only, without libraries. All of it tur
 
 The neon signs reshuffle on every load: fourteen texts come out of a pool of twenty-six and land in the side gutters, two beside the mask section and twelve scattered down the page. The scattered signs are laid out by their measured height, so two panels on the same side never overlap, and the layout is recalculated when images load, on resize and after every text swap. On wide screens (1560 px and up) one of the scattered signs swaps its text every few seconds, so the wall keeps buzzing; narrower screens keep only the two signs beside the mask.
 
-At the very bottom of the home page there is a club flyer: a torn black poster with a crimson neon title, the first verse of the track and a chorus that scrolls like a stuck print. It flickers softly and sits still under reduced motion.
+At the very bottom of the home page there is a club flyer: a smoked-acrylic neon lightbox with a metal bracket and a crimson tube title, the first verse of the track and a chorus that scrolls like a stuck print. It flickers softly and sits still under reduced motion.
 
 One more trick: the pointer leaves a trail of playing cards. A card drops under the cursor every few steps, each with a random rank and suit, drifts down, turns and fades. It is mouse-only, capped at fourteen live cards, and hidden under reduced motion.
 
