@@ -38,6 +38,10 @@ The source of the Ceaseless Studio website: a static page set served by GitHub P
 | `site.js` | Scene effects: reveal, read progress, medallion parallax and tilt, cursor light, card tilt, dust, opening curtain, EN/RU switch, playing-card cursor trail, neon sign ignition, night mode, first-visit ticket, footer applause sign, the bilingual fortune card, the demo Maria chat, the blood-signature contract |
 | `assets/` | Banner, key art, tier icons, Driven By Desire art |
 
+## Notes for maintainers
+
+`SITE-NOTES.md` is the site's memory: what has already shipped, what not to propose again, ideas kept for later, and a dated change log. Read it before editing and append an entry after every change.
+
 ## Main project: Driven By Desire
 
 <p align="center">
