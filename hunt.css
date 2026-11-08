@@ -88,8 +88,8 @@
   z-index: 42;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 7px 14px;
+  gap: 7px;
+  padding: 7px 11px;
   border: 1px solid rgba(226, 69, 44, .35);
   border-radius: 999px;
   background: rgba(13, 11, 12, .82);
@@ -102,13 +102,53 @@
   box-shadow: 0 0 18px rgba(192, 50, 36, .12);
 }
 
-.hunt-count::before {
-  content: "";
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: #ff6a52;
-  box-shadow: 0 0 7px rgba(255, 74, 52, .9), 0 0 16px rgba(255, 50, 30, .5);
+/* лого-улыбка вместо точки: счётчик стал пятью трубками */
+.hunt-count-smile {
+  display: inline-block;
+  width: 15px;
+  height: 8px;
+  flex: none;
+  color: rgba(255, 126, 104, .62);
+}
+
+.hunt-count-smile svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.hunt-tubes {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.hunt-tubes i {
+  display: block;
+  width: 3px;
+  height: 12px;
+  border-radius: 999px;
+  background: rgba(255, 126, 104, .16);
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, .6);
+  transition: background .25s ease, box-shadow .25s ease;
+}
+
+.hunt-tubes i.is-lit {
+  background: #ff7c66;
+  box-shadow: 0 0 5px rgba(255, 90, 60, .95), 0 0 12px rgba(255, 50, 30, .45);
+}
+
+.hunt-count-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
 }
 
 .hunt-count.is-complete {
@@ -116,6 +156,11 @@
   border-color: rgba(226, 69, 44, .7);
   cursor: pointer;
   animation: hunt-pulse 2.4s ease-in-out infinite;
+}
+
+.hunt-count.is-complete .hunt-count-smile {
+  color: #ff9d86;
+  filter: drop-shadow(0 0 4px rgba(255, 90, 60, .55));
 }
 
 @keyframes hunt-pulse {
@@ -208,6 +253,9 @@
   line-height: 1;
   text-shadow: 0 0 14px rgba(255, 74, 52, .55), 0 0 34px rgba(255, 50, 30, .25);
 }
+
+/* в финальном диалоге улыбка уже есть в счётчике, заголовок оставляем чистым */
+.hunt-final h2::before { content: none; }
 
 .hunt-final p {
   margin: 0 0 10px;

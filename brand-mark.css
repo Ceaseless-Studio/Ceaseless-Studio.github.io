@@ -1,4 +1,8 @@
-/* мини-лого: багровая улыбка в меню на каждой странице */
+/* мини-лого: багровая улыбка в меню и перед заголовками разделов */
+
+:root {
+  --smile-mark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 32'%3E%3Cg fill='none' stroke='%23000' stroke-width='3.4' stroke-linecap='round'%3E%3Cpath d='M4 5Q32 34 60 5'/%3E%3Cpath d='M17.5 10.4L16 19'/%3E%3Cpath d='M32 15.8V27.4'/%3E%3Cpath d='M46.5 10.4L48 19'/%3E%3C/g%3E%3C/svg%3E");
+}
 
 nav .brand {
   display: inline-flex;
@@ -24,6 +28,20 @@ nav .brand {
 
 html.night .brand-smile {
   filter: drop-shadow(0 0 8px rgba(210, 74, 54, .6));
+}
+
+/* тот же знак вместо ромба перед заголовками разделов: лого, а не ещё один неон */
+h2::before {
+  content: "";
+  display: inline-block;
+  width: 1.35em;
+  height: .68em;
+  margin-right: .45em;
+  vertical-align: -.02em;
+  font-size: 1em;
+  background: var(--accent);
+  -webkit-mask: var(--smile-mark) center / contain no-repeat;
+  mask: var(--smile-mark) center / contain no-repeat;
 }
 
 @media (max-width: 560px) {

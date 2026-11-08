@@ -129,6 +129,51 @@
   text-shadow: 0 0 24px rgba(190, 52, 28, .45);
 }
 
+/* маленькая неоновая табличка на 404: сигнала нет, но улыбка горит */
+.cage-sign {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: .55em;
+  margin: 0 0 14px;
+  padding: 8px 14px 9px;
+  border: 1px solid rgba(255, 92, 72, .42);
+  border-radius: 3px;
+  background: linear-gradient(180deg, rgba(30, 16, 16, .95), rgba(11, 8, 9, .96));
+  box-shadow: 0 0 20px rgba(255, 60, 40, .14), inset 0 0 14px rgba(255, 60, 40, .05);
+  color: #ffb4a3;
+  font-family: 'Pirata One', Georgia, serif;
+  font-size: .92rem;
+  letter-spacing: .22em;
+  line-height: 1;
+  text-transform: uppercase;
+  text-shadow: 0 0 8px rgba(255, 80, 55, .6);
+}
+
+.cage-sign::after {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border: 1px solid rgba(255, 92, 72, .16);
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+.cage-sign-smile {
+  display: inline-block;
+  width: 1.5em;
+  height: .75em;
+  color: #ff8b74;
+  filter: drop-shadow(0 0 5px rgba(255, 80, 55, .7));
+}
+
+.cage-sign-smile svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
 .cage-kicker {
   display: block;
   margin-bottom: 10px;

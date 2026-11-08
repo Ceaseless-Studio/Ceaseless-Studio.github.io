@@ -991,6 +991,19 @@
     countEl.className = "hunt-count";
     countEl.setAttribute("role", "status");
     countEl.setAttribute("aria-live", "polite");
+    const countSmile = document.createElement("span");
+    countSmile.className = "hunt-count-smile";
+    countSmile.setAttribute("aria-hidden", "true");
+    countSmile.innerHTML = '<svg viewBox="0 0 64 32" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"><path d="M4 5 Q32 34 60 5"/><path d="M17.5 10.4 L16 19"/><path d="M32 15.8 L32 27.4"/><path d="M46.5 10.4 L48 19"/></svg>';
+    const countTubes = document.createElement("span");
+    countTubes.className = "hunt-tubes";
+    countTubes.setAttribute("aria-hidden", "true");
+    for (let i = 0; i < total; i += 1) {
+      countTubes.appendChild(document.createElement("i"));
+    }
+    const countLabel = document.createElement("span");
+    countLabel.className = "hunt-count-label";
+    countEl.append(countSmile, countTubes, countLabel);
     document.body.appendChild(countEl);
     const toast = document.createElement("div");
     toast.className = "hunt-toast";
@@ -1005,7 +1018,11 @@
     };
     const paintCount = () => {
       const done = read().length;
-      countEl.textContent = "вывески " + done + " / " + total;
+      const tubes = countTubes.children;
+      for (let i = 0; i < tubes.length; i += 1) {
+        tubes[i].classList.toggle("is-lit", i < done);
+      }
+      countLabel.textContent = "вывески " + done + " / " + total;
       countEl.classList.toggle("is-complete", done >= total);
       countEl.setAttribute("title", done >= total ? "Открыть последнюю вывеску" : "Ищи неоновые вывески на страницах сайта");
     };

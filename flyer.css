@@ -42,6 +42,22 @@
   pointer-events: none;
 }
 
+/* клубный штамп-улыбка в углу афиши: лого, без лишнего света */
+.flyer::before {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  top: 26px;
+  right: 30px;
+  width: 56px;
+  height: 28px;
+  background: rgba(255, 126, 104, .24);
+  -webkit-mask: var(--smile-mark) center / contain no-repeat;
+  mask: var(--smile-mark) center / contain no-repeat;
+  transform: rotate(-6deg);
+  pointer-events: none;
+}
+
 /* металлический кронштейн вместо скотча */
 .flyer-tape {
   position: absolute;
