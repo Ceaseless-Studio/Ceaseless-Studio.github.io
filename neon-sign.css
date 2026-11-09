@@ -438,6 +438,11 @@ html.signs-visible { overflow-x: clip; }
 .page-sign .sign-line { font-size: 1.45rem; }
 .page-sign .sign-sign { margin-top: 16px; }
 
+.page-sign--left {
+  right: auto;
+  left: calc(50% - 50vw + 24px);
+}
+
 .page-sign--right {
   right: calc(50% - 50vw + 24px);
 }

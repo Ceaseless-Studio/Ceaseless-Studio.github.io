@@ -15,13 +15,13 @@ The source of the Ceaseless Studio website: a static page set served by GitHub P
 | Page | What it is |
 |---|---|
 | `index.html` | Home: live hero (medallion, stage light, name), who's behind the mask, the main project, neon backstage signs, other acts, tools and languages, the club flyer, the fortune deck |
-| `ceaseless-bot.html` | **Ceaseless Bot** - the backstage of a modeling agency: contracts, reaction roles, early builds, reports and publishing |
+| `ceaseless-bot.html` | **Ceaseless Bot** - the backstage of a modeling agency: contracts, reaction roles, early builds, reports and publishing, framed by Russian and English backstage signs |
 | `maria.html` | **Maria** - Cease's personal assistant: cards, greetings, proof approvals and publishing |
 | `driven-by-desire.html` | **Driven By Desire** - the visual novel: story, cast cards, art, an 18+ after-hours gallery, build stats and links, with a gold Main Stage plaque under the key art |
 | `404.html` | The empty cage: a missing page, a note left between the bars and the way back to the stage |
 | `style.css` | Shared styles and the scene: grain, glow, spotlights, curtain folds, marquee bulbs |
 | `trace-cards.css` | The playing-card trail: card face, rank, suit and the fade-out animation |
-| `neon-sign.css` | The neon signs: smoked panels, metal mounts, engraved plates and crimson tube lines on the home page, plus Maria's violet on-call sign, the bot's English backstage sign and the gold Main Stage plaque, with texts drawn at random from a pool of twenty-six |
+| `neon-sign.css` | The neon signs: smoked panels, metal mounts, engraved plates and crimson tube lines on the home page, plus Maria's violet on-call sign, the bot's paired Russian and English backstage signs and the gold Main Stage plaque, with texts drawn at random from a pool of twenty-six |
 | `night.css` | Night mode: darker palette, deeper shadows, vignette and the toggle in the menu |
 | `ticket.css` | The ADMIT ONE ticket that slides in once per visit and flies away when clicked |
 | `applause.css` | The APPLAUSE sign in the footer: bulbs chase and a "bravo" shows up when you click it |
