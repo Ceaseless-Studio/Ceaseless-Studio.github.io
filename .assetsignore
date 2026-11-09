@@ -1,0 +1,11 @@
+# Что не уходит в Cloudflare как файлы сайта.
+.git
+.gitignore
+.assetsignore
+.wrangler
+node_modules
+worker.js
+wrangler.jsonc
+README.md
+SITE-NOTES.md
+LICENSE

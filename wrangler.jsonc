@@ -1,0 +1,16 @@
+// Конфиг Cloudflare Workers для статического сайта студии.
+// Сайт отдаётся из корня репозитория, сборка не нужна.
+{
+  "name": "ceaseless-studio-site",
+  "compatibility_date": "2026-11-09",
+  "main": "worker.js",
+  "assets": {
+    "directory": "./",
+    "binding": "ASSETS",
+    "html_handling": "none",
+    "not_found_handling": "404-page",
+    // Только корень и ролики Driven By Desire идут через воркер: корню нужен
+    // index.html, роликам - Range-запросы, иначе Safari не проигрывает видео.
+    "run_worker_first": ["/", "/assets/dbd/*.mp4"]
+  }
+}
