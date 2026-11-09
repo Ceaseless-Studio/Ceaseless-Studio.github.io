@@ -56,6 +56,7 @@
 - На странице Марии - фиолетовая вывеска `ON CALL` / `after hours` с подписью: одна штука в правом поле героя, на узких экранах скрывается.
 - На странице Ceaseless Bot - две вывески: русская `ЗА КУЛИСАМИ` с репликами «киска, я на смене.» и «кнопки не трогай.» слева и английская `BACKSTAGE` с `kitten, I'm on shift.` и `hands off the buttons.` справа; подпись `Ceaseless`. На узких экранах обе скрываются.
 - На странице Driven By Desire - золотая табличка под ключевым артом, только по-английски: `MAIN STAGE`.
+- Логотип в шапке зажигается при загрузке: короткое мерцание трубки, на первом заходе ждёт занавес, при `prefers-reduced-motion` выключено.
 
 ### Коммиты неоновой ветки
 
@@ -68,6 +69,7 @@
 - `f44b6ab` - Make the DBD plaque English-only and the bot plate bilingual.
 - `4cea013` - Move the bot sign right and make it English.
 - `839da5a` - Add the Russian counterpart to the bot sign.
+- `5c99fe8` - Ignite the brand smile on load.
 
 ## Не предлагать снова
 
@@ -89,7 +91,6 @@
 - тонкие неоновые подчёркивания под заголовками разделов;
 - неоновая кромка у карты судьбы;
 - табличка `ON AIR` у занавеса;
-- зажигание логотипа при загрузке;
 - неоновое подчёркивание активного пункта меню.
 
 ## Журнал
@@ -100,4 +101,5 @@
 - 2026-11-09 - на странице Марии добавлена фиолетовая вывеска `ON CALL` / `after hours` с подписью; `maria.html`, `maria-chat.css`, `neon-sign.css`, `night.css`, `site.js`, README. Коммит `55a502f`.
 - 2026-11-09 - на странице Ceaseless Bot добавлена багровая вывеска с плашкой `BACKSTAGE` и репликами «киска, я на смене.» и «кнопки не трогай.»; позже переведена на английский и перенесена вправо. `ceaseless-bot.html`, `maria.html`, `maria-chat.css`, `neon-sign.css`, README. Коммит `c73c9a8`.
 - 2026-11-09 - под ключевым артом Driven By Desire добавлена золотая английская табличка `MAIN STAGE`; `driven-by-desire.html`, `neon-sign.css`, README. Коммит `dc68c6f`.
+- 2026-11-09 - логотип в шапке зажигается неоновым мерцанием при загрузке, с задержкой под занавес и отключением при `prefers-reduced-motion`; `brand-mark.css`, README. Коммит `5c99fe8`.
 - 2026-11-09 - табличка DBD оставлена только на английском (`MAIN STAGE`); у бота теперь две вывески: русская `ЗА КУЛИСАМИ` слева и английская `BACKSTAGE` справа. `driven-by-desire.html`, `ceaseless-bot.html`, `neon-sign.css`, README. Коммиты `f44b6ab`, `4cea013`, `839da5a`.
