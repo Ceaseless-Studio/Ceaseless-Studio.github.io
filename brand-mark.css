@@ -61,6 +61,54 @@ h2::before {
   mask: var(--smile-mark) center / contain no-repeat;
 }
 
+/* тонкая неоновая черта под заголовком: цвет наследуется от h2, поэтому DBD остаётся золотым */
+h2::after {
+  content: "";
+  display: block;
+  width: 2.8em;
+  height: 1px;
+  margin-top: .5em;
+  border-radius: 1px;
+  background: linear-gradient(90deg, currentColor, transparent);
+  box-shadow: 0 0 9px currentColor;
+  opacity: .5;
+  pointer-events: none;
+}
+
+/* у центрированного заголовка DBD черта тоже по центру */
+.dbd-bridge-copy h2::after {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* активный пункт меню: тонкая трубка под ссылкой */
+nav a.link {
+  position: relative;
+}
+
+nav a.link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -7px;
+  height: 1px;
+  border-radius: 1px;
+  background: var(--accent-hi, #c0402f);
+  box-shadow: 0 0 8px var(--accent-hi, #c0402f);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .18s ease;
+}
+
+nav a.link.on::after {
+  opacity: .6;
+}
+
+nav a.link:hover::after {
+  opacity: .35;
+}
+
 @media (max-width: 560px) {
   .brand-smile {
     width: 1.35em;
@@ -73,5 +121,9 @@ h2::before {
     animation: none;
     opacity: 1;
     filter: none;
+  }
+
+  nav a.link::after {
+    transition: none;
   }
 }

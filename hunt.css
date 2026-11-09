@@ -255,7 +255,8 @@
 }
 
 /* в финальном диалоге улыбка уже есть в счётчике, заголовок оставляем чистым */
-.hunt-final h2::before { content: none; }
+.hunt-final h2::before,
+.hunt-final h2::after { content: none; }
 
 .hunt-final p {
   margin: 0 0 10px;

@@ -28,12 +28,12 @@ The source of the Ceaseless Studio website: a static page set served by GitHub P
 | `cage.css` | The 404 cage: arched bars, a torn note inside, a missing-door gap and a small NO SIGNAL plate |
 | `gothic.css` | The blackletter wordmark used for the studio name in the menu and the hero |
 | `curtain-transition.css` | Page transition: the curtain closes before a new page and opens on arrival |
-| `brand-mark.css` | The small crimson smile next to the wordmark and before section headings, with a short neon ignition flicker on load |
+| `brand-mark.css` | The small crimson smile next to the wordmark and before section headings, a thin neon rule under headings, the active-nav underline, and a short neon ignition flicker on load |
 | `hunt.css` | Five neon OPEN signs hidden across the pages and a five-tube counter for the ones you lit |
 | `surprises.css` | Konami-code glitch and the whisper on a long idle |
 | `contract.css` | The performers agreement on the bot page: paper, terms, a canvas to sign in blood and a faint smile watermark |
 | `maria-chat.css` | The demo chat with Maria on her page: purple panel, bubbles, quick asks and a typing indicator |
-| `fortune.css` | The fortune card: a face-down deck that flips on click and answers in English and Russian |
+| `fortune.css` | The fortune card: a face-down deck with a thin neon edge that flips on click and answers in English and Russian |
 | `flyer.css` | The club flyer at the bottom of the home page: a smoked-acrylic neon lightbox, a metal bracket, a small smile stamp, the track lyric and the stuck chorus |
 | `site.js` | Scene effects: reveal, read progress, medallion parallax and tilt, cursor light, card tilt, dust, opening curtain, EN/RU switch, playing-card cursor trail, neon sign ignition, night mode, first-visit ticket, footer applause sign, the bilingual fortune card, the demo Maria chat, the blood-signature contract |
 | `assets/` | Banner, key art, tier icons, Driven By Desire art |
