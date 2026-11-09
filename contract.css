@@ -36,6 +36,21 @@
   pointer-events: none;
 }
 
+/* водяной знак-улыбка на бумаге: лого студии, без неона */
+.contract-paper::after {
+  content: "";
+  position: absolute;
+  right: 26px;
+  bottom: 24px;
+  width: 118px;
+  height: 59px;
+  background: rgba(143, 36, 26, .13);
+  -webkit-mask: var(--smile-mark) center / contain no-repeat;
+  mask: var(--smile-mark) center / contain no-repeat;
+  transform: rotate(-8deg);
+  pointer-events: none;
+}
+
 .contract-kicker {
   margin: 0;
   font-size: .58rem;

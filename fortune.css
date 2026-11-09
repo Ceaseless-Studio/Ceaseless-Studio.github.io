@@ -1,4 +1,4 @@
-﻿/* 16. карта судьбы: колода за кулисами, по клику переворачивается и отвечает на двух языках */
+/* 16. карта судьбы: колода за кулисами, по клику переворачивается и отвечает на двух языках */
 
 .fortune-section {
   position: relative;
@@ -33,6 +33,29 @@
   outline: 2px solid var(--accent-hi, #c0402f);
   outline-offset: 8px;
   border-radius: 12px;
+}
+
+/* тонкая неоновая кромка вокруг карты: видна и на рубашке, и на лице */
+.fortune-card::after {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border: 1px solid rgba(200, 64, 47, .5);
+  border-radius: 13px;
+  box-shadow:
+    0 0 18px rgba(200, 64, 47, .18),
+    inset 0 0 12px rgba(200, 64, 47, .06);
+  opacity: .8;
+  pointer-events: none;
+  transition: opacity .2s ease, box-shadow .2s ease;
+}
+
+.fortune-card:hover::after,
+.fortune-card:focus-visible::after {
+  opacity: 1;
+  box-shadow:
+    0 0 26px rgba(200, 64, 47, .3),
+    inset 0 0 14px rgba(200, 64, 47, .1);
 }
 
 .fortune-inner {
@@ -239,6 +262,8 @@
 
 @media (prefers-reduced-motion: reduce) {
   .fortune-inner { transition: none; }
+
+  .fortune-card::after { transition: none; }
 }
 
 
