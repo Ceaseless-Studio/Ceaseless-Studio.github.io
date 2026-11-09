@@ -54,7 +54,7 @@
 - Логотип-улыбка: перед заголовками разделов вместо ромба, водяным знаком на контракте, штампом на афише, в счётчике и на табличке 404.
 - Неона в этой партии добавлено ровно две вещи: табличка на 404 и трубки счётчика. Остальное - плоский багровый знак без свечения.
 - На странице Марии - фиолетовая вывеска `ON CALL` / `after hours` с подписью: одна штука в правом поле героя, на узких экранах скрывается.
-- На странице Ceaseless Bot - багровая вывеска полностью на английском: плашка `BACKSTAGE`, строки `kitten, I'm on shift.` и `hands off the buttons.`, подпись `Ceaseless`; справа в поле героя, на узких экранах скрывается.
+- На странице Ceaseless Bot - две вывески: русская `ЗА КУЛИСАМИ` с репликами «киска, я на смене.» и «кнопки не трогай.» слева и английская `BACKSTAGE` с `kitten, I'm on shift.` и `hands off the buttons.` справа; подпись `Ceaseless`. На узких экранах обе скрываются.
 - На странице Driven By Desire - золотая табличка под ключевым артом, только по-английски: `MAIN STAGE`.
 
 ### Коммиты неоновой ветки
@@ -67,6 +67,7 @@
 - `dc68c6f` - Add the gold Main Stage plaque to Driven By Desire.
 - `f44b6ab` - Make the DBD plaque English-only and the bot plate bilingual.
 - `4cea013` - Move the bot sign right and make it English.
+- `839da5a` - Add the Russian counterpart to the bot sign.
 
 ## Не предлагать снова
 
@@ -99,4 +100,4 @@
 - 2026-11-09 - на странице Марии добавлена фиолетовая вывеска `ON CALL` / `after hours` с подписью; `maria.html`, `maria-chat.css`, `neon-sign.css`, `night.css`, `site.js`, README. Коммит `55a502f`.
 - 2026-11-09 - на странице Ceaseless Bot добавлена багровая вывеска с плашкой `BACKSTAGE` и репликами «киска, я на смене.» и «кнопки не трогай.»; позже переведена на английский и перенесена вправо. `ceaseless-bot.html`, `maria.html`, `maria-chat.css`, `neon-sign.css`, README. Коммит `c73c9a8`.
 - 2026-11-09 - под ключевым артом Driven By Desire добавлена золотая английская табличка `MAIN STAGE`; `driven-by-desire.html`, `neon-sign.css`, README. Коммит `dc68c6f`.
-- 2026-11-09 - табличка DBD оставлена только на английском (`MAIN STAGE`), вывеска бота переведена на английский (`kitten, I'm on shift.` / `hands off the buttons.`) и перенесена в правую часть. `driven-by-desire.html`, `ceaseless-bot.html`, `neon-sign.css`, README. Коммиты `f44b6ab`, `4cea013`.
+- 2026-11-09 - табличка DBD оставлена только на английском (`MAIN STAGE`); у бота теперь две вывески: русская `ЗА КУЛИСАМИ` слева и английская `BACKSTAGE` справа. `driven-by-desire.html`, `ceaseless-bot.html`, `neon-sign.css`, README. Коммиты `f44b6ab`, `4cea013`, `839da5a`.
