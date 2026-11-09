@@ -1,4 +1,4 @@
-﻿/* демо-чат с Марией: панель в пурпурных тонах, заготовленные ответы */
+/* демо-чат с Марией: панель в пурпурных тонах, заготовленные ответы */
 
 .chat-section {
   padding-top: 6px;
@@ -236,29 +236,4 @@ html.night .msg--maria {
   .chat-state {
     display: none;
   }
-}
-
-
-/* именная вывеска Марии: одна на страницу, в правом поле героя */
-.hero { position: relative; }
-
-.maria-sign {
-  position: absolute;
-  z-index: 2;
-  top: 50%;
-  right: -40px;
-  width: 248px;
-  transform: translateY(-50%) rotate(2.2deg);
-}
-
-.maria-sign .neon-sign {
-  padding: 36px 26px 28px;
-  text-align: left;
-}
-
-.maria-sign .sign-line { font-size: 1.45rem; }
-.maria-sign .sign-sign { margin-top: 16px; }
-
-@media (max-width: 1240px) {
-  .maria-sign { display: none; }
 }

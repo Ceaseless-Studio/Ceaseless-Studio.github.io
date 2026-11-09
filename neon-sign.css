@@ -417,3 +417,32 @@ html.signs-visible { overflow-x: clip; }
   .signs-cloud .sign-float .neon-sign { animation: none; }
   .sign-shell:hover .neon-sign { filter: none; }
 }
+
+/* именная вывеска страницы: одна на герой, в правом поле */
+.hero { position: relative; }
+
+.page-sign {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  right: -40px;
+  width: 248px;
+  transform: translateY(-50%) rotate(2.2deg);
+}
+
+.page-sign .neon-sign {
+  padding: 36px 26px 28px;
+  text-align: left;
+}
+
+.page-sign .sign-line { font-size: 1.45rem; }
+.page-sign .sign-sign { margin-top: 16px; }
+
+.page-sign--left {
+  right: auto;
+  left: calc(50% - 50vw + 24px);
+}
+
+@media (max-width: 1240px) {
+  .page-sign { display: none; }
+}
