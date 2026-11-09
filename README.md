@@ -28,7 +28,7 @@ The source of the Ceaseless Studio website: a static page set served by GitHub P
 | `cage.css` | The 404 cage: arched bars, a torn note inside, a missing-door gap and a small NO SIGNAL plate |
 | `gothic.css` | The blackletter wordmark used for the studio name in the menu and the hero |
 | `curtain-transition.css` | Page transition: the curtain closes before a new page and opens on arrival |
-| `brand-mark.css` | The small crimson smile next to the wordmark and before section headings |
+| `brand-mark.css` | The small crimson smile next to the wordmark and before section headings, with a short neon ignition flicker on load |
 | `hunt.css` | Five neon OPEN signs hidden across the pages and a five-tube counter for the ones you lit |
 | `surprises.css` | Konami-code glitch and the whisper on a long idle |
 | `contract.css` | The performers agreement on the bot page: paper, terms, a canvas to sign in blood and a faint smile watermark |
