@@ -446,3 +446,58 @@ html.signs-visible { overflow-x: clip; }
 @media (max-width: 1240px) {
   .page-sign { display: none; }
 }
+
+/* золотая двуязычная табличка под ключевым артом Driven By Desire */
+.stage-plaque {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  width: min(520px, 100%);
+  margin: 18px auto 0;
+  padding: 13px 24px 12px;
+  border: 1px solid rgba(201, 162, 74, .55);
+  border-radius: 3px;
+  background:
+    radial-gradient(80% 140% at 50% 0%, rgba(201, 162, 74, .10), transparent 65%),
+    linear-gradient(#1b1710, #0d0b08);
+  box-shadow:
+    0 0 34px rgba(201, 162, 74, .14),
+    0 0 90px rgba(201, 162, 74, .07),
+    inset 0 0 22px rgba(201, 162, 74, .05);
+  color: #e7cd92;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: .92rem;
+  font-weight: 600;
+  letter-spacing: .22em;
+  line-height: 1;
+  text-transform: uppercase;
+  text-shadow:
+    0 0 6px rgba(235, 209, 150, .55),
+    0 0 16px rgba(201, 162, 74, .35);
+}
+
+.stage-plaque::before {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  border: 1px solid rgba(201, 162, 74, .18);
+  pointer-events: none;
+}
+
+.stage-plaque__mark {
+  color: #c9a24a;
+  font-size: .7em;
+  letter-spacing: 0;
+  text-shadow: 0 0 8px rgba(201, 162, 74, .8);
+}
+
+@media (max-width: 720px) {
+  .stage-plaque {
+    gap: 10px;
+    padding: 11px 14px 10px;
+    font-size: .72rem;
+    letter-spacing: .14em;
+  }
+}

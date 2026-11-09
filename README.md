@@ -17,7 +17,7 @@ The source of the Ceaseless Studio website: a static page set served by GitHub P
 | `index.html` | Home: live hero (medallion, stage light, name), who's behind the mask, the main project, neon backstage signs, other acts, tools and languages, the club flyer, the fortune deck |
 | `ceaseless-bot.html` | **Ceaseless Bot** - the backstage of a modeling agency: contracts, reaction roles, early builds, reports and publishing |
 | `maria.html` | **Maria** - Cease's personal assistant: cards, greetings, proof approvals and publishing |
-| `driven-by-desire.html` | **Driven By Desire** - the visual novel: story, cast cards, art, an 18+ after-hours gallery, build stats and links |
+| `driven-by-desire.html` | **Driven By Desire** - the visual novel: story, cast cards, art, an 18+ after-hours gallery, build stats and links, with a gold Main Stage plaque under the key art |
 | `404.html` | The empty cage: a missing page, a note left between the bars and the way back to the stage |
 | `style.css` | Shared styles and the scene: grain, glow, spotlights, curtain folds, marquee bulbs |
 | `trace-cards.css` | The playing-card trail: card face, rank, suit and the fade-out animation |
