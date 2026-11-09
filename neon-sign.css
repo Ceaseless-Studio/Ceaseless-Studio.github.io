@@ -63,6 +63,21 @@
   --neon-fill: #fff7ee;
 }
 
+/* фиолетовая вывеска Марии: тот же акрил, другая трубка */
+.neon-sign--violet {
+  --neon: 177, 116, 255;
+  --neon-soft: 208, 168, 255;
+  --neon-fill: #f2e6ff;
+}
+
+.neon-sign--violet .sign-sign {
+  color: #ddc8ff;
+  text-shadow:
+    0 0 4px rgba(var(--neon-soft), .8),
+    0 0 12px rgba(var(--neon), .62),
+    0 0 26px rgba(var(--neon), .3);
+}
+
 /* трубка-рамка: только у больших вывесок, чтобы мелкие не рябили */
 .neon-sign--framed::after {
   content: "";

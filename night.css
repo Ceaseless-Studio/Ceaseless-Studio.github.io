@@ -76,6 +76,10 @@ html.night .sign-hot { color: #ffe1d9; }
 
 html.night .sign-sign { color: #ffc9c0; }
 
+html.night .neon-sign--violet { border-color: rgba(196, 148, 255, .3); }
+html.night .neon-sign--violet .sign-line { color: #f0e4ff; }
+html.night .neon-sign--violet .sign-sign { color: #d9c4ff; }
+
 html.night .sign-plate {
   border-color: #493c3f;
   color: #d8c4c0;

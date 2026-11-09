@@ -493,7 +493,8 @@
   let usedCount = 0;
 
   const railSigns = document.querySelectorAll(".signs-rail .neon-sign");
-  if (railSigns.length) document.documentElement.classList.add("signs-visible");
+  const neonSigns = document.querySelectorAll(".neon-sign");
+  if (neonSigns.length) document.documentElement.classList.add("signs-visible");
   railSigns.forEach((sign) => {
     if (usedCount >= pool.length) return;
     fillSign(sign, pool[usedCount]);

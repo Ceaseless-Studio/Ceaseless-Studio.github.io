@@ -21,7 +21,7 @@ The source of the Ceaseless Studio website: a static page set served by GitHub P
 | `404.html` | The empty cage: a missing page, a note left between the bars and the way back to the stage |
 | `style.css` | Shared styles and the scene: grain, glow, spotlights, curtain folds, marquee bulbs |
 | `trace-cards.css` | The playing-card trail: card face, rank, suit and the fade-out animation |
-| `neon-sign.css` | The neon signs on the home page: smoked panels, metal mounts, engraved plates and crimson tube lines, with texts drawn at random from a pool of twenty-six |
+| `neon-sign.css` | The neon signs: smoked panels, metal mounts, engraved plates and crimson tube lines on the home page, plus Maria's violet on-call sign, with texts drawn at random from a pool of twenty-six |
 | `night.css` | Night mode: darker palette, deeper shadows, vignette and the toggle in the menu |
 | `ticket.css` | The ADMIT ONE ticket that slides in once per visit and flies away when clicked |
 | `applause.css` | The APPLAUSE sign in the footer: bulbs chase and a "bravo" shows up when you click it |
