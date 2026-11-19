@@ -261,7 +261,8 @@
 .fortune-card.is-face .fortune-back { visibility: hidden; opacity: 0; }
 
 @media (prefers-reduced-motion: reduce) {
-  .fortune-inner { transition: none; }
+  /* карта всё равно поворачивается, но быстрее: без движения клик читается как подвисание */
+  .fortune-inner { transition-duration: .1s; }
 
   .fortune-card::after { transition: none; }
 }

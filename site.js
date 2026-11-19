@@ -775,6 +775,8 @@
     };
     let turning = false;
     const reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const shutMs = reduceMotion ? 110 : 190;
+    const openMs = reduceMotion ? 150 : 300;
     const reveal = () => {
       fill();
       card.classList.add("is-face");
@@ -782,10 +784,6 @@
     };
     card.addEventListener("click", () => {
       if (turning) return;
-      if (reduceMotion) {
-        reveal();
-        return;
-      }
       turning = true;
       card.classList.remove("is-opening");
       card.classList.add("is-shut");
@@ -796,8 +794,8 @@
         setTimeout(() => {
           card.classList.remove("is-opening");
           turning = false;
-        }, 300);
-      }, 190);
+        }, openMs);
+      }, shutMs);
     });
   })();
 
