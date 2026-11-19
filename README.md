@@ -19,6 +19,7 @@ The source of the Ceaseless Studio website: a static page set served by GitHub P
 | `maria.html` | **Maria** - Cease's personal assistant: cards, greetings, proof approvals and publishing |
 | `driven-by-desire.html` | **Driven By Desire** - the visual novel: story, cast cards, art, an 18+ after-hours gallery, build stats and links, with a gold Main Stage plaque under the key art |
 | `404.html` | The empty cage: a missing page, a note left between the bars and the way back to the stage |
+| `collages.html` | **Collages** - every poster from the Telegram feed, hung on the backstage wall, each opening into a lightbox with the caption that went with it |
 | `style.css` | Shared styles and the scene: grain, glow, spotlights, curtain folds, marquee bulbs |
 | `trace-cards.css` | The playing-card trail: card face, rank, suit and the fade-out animation |
 | `neon-sign.css` | The neon signs: smoked panels, metal mounts, engraved plates and crimson tube lines on the home page, plus Maria's violet on-call sign, the bot's paired Russian and English backstage signs and the gold Main Stage plaque, with texts drawn at random from a pool of twenty-six |
@@ -35,8 +36,10 @@ The source of the Ceaseless Studio website: a static page set served by GitHub P
 | `maria-chat.css` | The demo chat with Maria on her page: purple panel, bubbles, quick asks and a typing indicator |
 | `fortune.css` | The fortune card: a face-down deck with a thin neon edge that flips on click and answers in English and Russian |
 | `flyer.css` | The club flyer at the bottom of the home page: a smoked-acrylic neon lightbox, a metal bracket, a small smile stamp, the track lyric and the stuck chorus |
+| `collages.css` | The backstage wall: poster frames on metal clips, a slight tilt, numbered captions and the lightbox |
+| `collages.js` | The collages lightbox: full poster, caption, prev/next, Escape and the animated antrakt loop |
 | `site.js` | Scene effects: reveal, read progress, medallion parallax and tilt, cursor light, card tilt, dust, opening curtain, EN/RU switch, playing-card cursor trail, neon sign ignition, night mode, first-visit ticket, footer applause sign, the bilingual fortune card, the demo Maria chat, the blood-signature contract |
-| `assets/` | Banner, key art, tier icons, Driven By Desire art |
+| `assets/` | Banner, key art, tier icons, Driven By Desire art, Telegram posters |
 
 ## Notes for maintainers
 

@@ -1,0 +1,486 @@
+/* Стена с телеграм-коллажами: постеры на кронштейнах, лайтбокс.
+   Отдельный файл, потому что style.css в смешанной кодировке.
+   Разметка - collages.html, поведение - collages.js. */
+
+.collage-wrap {
+  max-width: 1160px;
+}
+
+.collage-hero {
+  padding-bottom: 10px;
+}
+
+.collage-hero .lead a {
+  color: var(--fg);
+}
+
+/* служебная строка под лидом: как подпись на обороте афиши */
+.wall-meta {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  margin: 22px 0 0;
+  color: var(--muted);
+  font-size: .72rem;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+}
+
+.wall-meta span + span {
+  position: relative;
+}
+
+.wall-meta span + span::before {
+  content: "";
+  position: absolute;
+  left: -10px;
+  top: 50%;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--accent);
+  transform: translateY(-50%);
+}
+
+/* сама стена */
+.wall {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 58px 42px;
+  padding: 30px 0 56px;
+}
+
+/* пять постеров: три в ряд, две снизу по центру - как афиши на стене */
+.wall-piece { grid-column: span 2; }
+.wall-piece:nth-child(4) { grid-column: 2 / span 2; }
+
+.wall::before {
+  content: "";
+  position: absolute;
+  inset: -30px -30px 0;
+  background: radial-gradient(75% 55% at 50% 0%, rgba(153, 45, 34, .10), transparent 70%);
+  pointer-events: none;
+}
+
+.wall-piece {
+  position: relative;
+  margin: 0;
+  transform: rotate(var(--tilt, 0deg));
+  transition: transform .45s cubic-bezier(.2, .7, .2, 1);
+}
+
+.wall-piece:hover,
+.wall-piece:focus-within {
+  transform: rotate(0deg) translateY(-6px);
+}
+
+.piece-btn {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: zoom-in;
+}
+
+.piece-btn:focus-visible {
+  outline: 2px solid var(--accent-hi);
+  outline-offset: 6px;
+}
+
+/* кронштейн, на котором висит постер */
+.piece-clip {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  z-index: 2;
+  width: 76px;
+  height: 18px;
+  border-radius: 3px;
+  background: linear-gradient(180deg, #514749 0%, #2a2426 55%, #1b1718 100%);
+  box-shadow:
+    0 3px 7px rgba(0, 0, 0, .65),
+    inset 0 1px 0 rgba(255, 255, 255, .14);
+  transform: translateX(-50%);
+}
+
+.piece-clip::before,
+.piece-clip::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #0e0c0d;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, .18);
+  transform: translateY(-50%);
+}
+
+.piece-clip::before { left: 9px; }
+.piece-clip::after { right: 9px; }
+
+/* тёмный акриловый паспарту вокруг постера */
+.piece-frame {
+  position: relative;
+  display: block;
+  padding: 10px;
+  border: 1px solid #2f2729;
+  background: linear-gradient(180deg, #1a1516 0%, #120f10 100%);
+  box-shadow:
+    0 20px 44px rgba(0, 0, 0, .55),
+    inset 0 1px 0 rgba(255, 255, 255, .05);
+  transition: border-color .35s ease, box-shadow .35s ease;
+}
+
+.wall-piece:hover .piece-frame,
+.piece-btn:focus-visible .piece-frame {
+  border-color: rgba(192, 64, 47, .45);
+  box-shadow:
+    0 26px 52px rgba(0, 0, 0, .62),
+    0 0 34px rgba(153, 45, 34, .16),
+    inset 0 1px 0 rgba(255, 255, 255, .05);
+}
+
+.piece-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  background: #0b0909;
+}
+
+.piece-view {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  padding: 3px 9px;
+  border: 1px solid rgba(237, 232, 224, .35);
+  background: rgba(9, 8, 8, .72);
+  color: var(--fg);
+  font-size: .68rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity .3s ease;
+}
+
+.wall-piece:hover .piece-view,
+.piece-btn:focus-visible .piece-view {
+  opacity: 1;
+}
+
+@media (hover: none) {
+  .piece-view { opacity: .55; }
+}
+
+/* подписи под постером */
+.piece-copy {
+  display: block;
+  padding: 14px 3px 0;
+}
+
+.piece-no {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--accent-hi);
+  font-size: .72rem;
+  letter-spacing: .26em;
+}
+
+.piece-title {
+  display: block;
+  font-family: 'Pirata One', serif;
+  font-size: 1.5rem;
+  line-height: 1.12;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+}
+
+.piece-note {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-style: italic;
+  font-size: 1.02rem;
+  line-height: 1.4;
+}
+
+.piece-tags {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.piece-tag {
+  padding: 1px 6px;
+  border: 1px solid rgba(192, 64, 47, .45);
+  color: var(--accent-hi);
+  font-size: .66rem;
+  letter-spacing: .16em;
+  line-height: 1.6;
+}
+
+.piece-tag--live {
+  border-color: rgba(237, 232, 224, .22);
+  color: var(--muted);
+}
+
+.wall-foot {
+  margin: 0 auto 40px;
+  max-width: 520px;
+  color: var(--muted);
+  font-style: italic;
+  text-align: center;
+}
+
+/* ночью постеры не гасим так сильно, как обычные фото: текст должен читаться */
+html.night .piece-frame img {
+  filter: brightness(.94) saturate(.98);
+}
+
+/* лайтбокс */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.lightbox[hidden] { display: none; }
+
+.lightbox-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(6, 5, 6, .93);
+  backdrop-filter: blur(7px);
+  animation: lightbox-fade .25s ease both;
+}
+
+.lightbox-panel {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 36px;
+  align-items: center;
+  width: min(1120px, 100%);
+  max-height: 92vh;
+  animation: lightbox-rise .3s cubic-bezier(.2, .7, .2, 1) both;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  z-index: 3;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: rgba(13, 11, 12, .85);
+  color: var(--fg);
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: color .2s ease, border-color .2s ease, transform .2s ease;
+}
+
+.lightbox-close:hover {
+  color: var(--accent-hi);
+  border-color: var(--accent);
+  transform: rotate(90deg);
+}
+
+.lightbox-stage {
+  display: grid;
+  place-items: center;
+  min-width: 0;
+}
+
+.lightbox-img,
+.lightbox-video {
+  display: block;
+  max-width: 100%;
+  max-height: 86vh;
+  width: auto;
+  height: auto;
+  background: #0b0909;
+  box-shadow: 0 26px 70px rgba(0, 0, 0, .7);
+}
+
+.lightbox-img[hidden],
+.lightbox-video[hidden] {
+  display: none;
+}
+
+.lightbox-copy {
+  min-width: 0;
+  max-height: 86vh;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.lightbox-no {
+  margin: 0 0 8px;
+  color: var(--accent-hi);
+  font-size: .72rem;
+  letter-spacing: .26em;
+}
+
+.lightbox-title {
+  margin: 0;
+  font-family: 'Pirata One', serif;
+  font-size: clamp(1.9rem, 3.4vw, 2.6rem);
+  line-height: 1.05;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+}
+
+.lightbox-note {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-style: italic;
+}
+
+.lightbox-caption {
+  margin: 18px 0 0;
+  padding: 14px 0 0 16px;
+  border-left: 2px solid rgba(192, 64, 47, .55);
+  color: var(--fg);
+  font-size: 1.08rem;
+  line-height: 1.55;
+}
+
+.lightbox-source {
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: .78rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+
+.lightbox-nav {
+  display: flex;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.lightbox-step {
+  flex: 1 1 0;
+  padding: 9px 12px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--muted);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: .8rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color .2s ease, border-color .2s ease, background-color .2s ease;
+}
+
+.lightbox-step:hover,
+.lightbox-step:focus-visible {
+  color: var(--fg);
+  border-color: var(--accent);
+  background: rgba(153, 45, 34, .10);
+}
+
+.lightbox-close:focus-visible,
+.lightbox-step:focus-visible {
+  outline: 2px solid var(--accent-hi);
+  outline-offset: 3px;
+}
+
+html.lightbox-open {
+  overflow: hidden;
+}
+
+@keyframes lightbox-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes lightbox-rise {
+  from { opacity: 0; transform: translateY(14px) scale(.985); }
+  to { opacity: 1; transform: none; }
+}
+
+/* брейкпоинты */
+@media (max-width: 1040px) {
+  .wall { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+  /* два в ряд, пятый по центру */
+  .wall-piece:nth-child(4) { grid-column: span 2; }
+  .wall-piece:nth-child(5) { grid-column: 2 / span 2; }
+}
+
+@media (max-width: 900px) {
+  .lightbox-panel {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+    max-height: 92vh;
+    overflow-y: auto;
+    align-items: start;
+    padding-bottom: 8px;
+  }
+
+  .lightbox-img,
+  .lightbox-video { max-height: 58vh; }
+
+  .lightbox-copy {
+    max-height: none;
+    overflow: visible;
+  }
+
+  .lightbox-close {
+    position: fixed;
+    top: 14px;
+    right: 14px;
+  }
+}
+
+@media (max-width: 640px) {
+  .wall {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 46px;
+    padding-top: 18px;
+  }
+
+  .wall-piece,
+  .wall-piece:nth-child(4),
+  .wall-piece:nth-child(5) { grid-column: span 1; }
+
+  .piece-title { font-size: 1.35rem; }
+
+  .lightbox { padding: 14px; }
+
+  .lightbox-img,
+  .lightbox-video { max-height: 52vh; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wall-piece,
+  .piece-frame,
+  .piece-view,
+  .lightbox-backdrop,
+  .lightbox-panel,
+  .lightbox-close {
+    animation: none;
+    transition: none;
+  }
+
+  .wall-piece:hover,
+  .wall-piece:focus-within {
+    transform: rotate(var(--tilt, 0deg));
+  }
+}
