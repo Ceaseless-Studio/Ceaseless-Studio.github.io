@@ -1,0 +1,60 @@
+/* Страница Руми: голос F60 Collection.
+   Отдельный файл, потому что style.css в смешанной кодировке. */
+
+/* голубая трубка вместо багровой: синий свет её задней комнаты */
+.neon-sign--rumi {
+  --neon: 96, 198, 255;
+  --neon-soft: 168, 226, 255;
+  --neon-fill: #e6f6ff;
+}
+
+html.night .neon-sign--rumi { border-color: rgba(112, 204, 255, .3); }
+html.night .neon-sign--rumi .sign-line { color: #e4f5ff; }
+html.night .neon-sign--rumi .sign-sign { color: #b6e2ff; }
+
+/* кадр из задней комнаты: телевизоры, кассеты, синий свет */
+.rumi-still {
+  margin: 0 auto 30px;
+  max-width: 780px;
+  padding: 10px 10px 0;
+  background: rgba(8, 10, 14, .72);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  box-shadow: 0 26px 62px rgba(0, 0, 0, .5);
+  transform: rotate(-.35deg);
+  transition: transform .5s cubic-bezier(.2, .7, .2, 1);
+}
+
+.rumi-still:hover { transform: rotate(0deg); }
+
+.rumi-still img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 3px;
+}
+
+.rumi-still figcaption {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 10px 4px 13px;
+  color: var(--muted);
+  font-size: .82rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.rumi-still figcaption span {
+  font-style: italic;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--muted);
+}
+
+@media (max-width: 720px) {
+  .rumi-still { transform: none; }
+  .rumi-still figcaption { display: block; }
+  .rumi-still figcaption span { display: block; margin-top: 4px; }
+}

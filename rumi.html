@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rumi - Ceaseless Studio</title>
+<meta name="description" content="Rumi: the voice of F60 Collection on its Discord server. Lines, canon, live talk, cards and staff tools.">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Pirata+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="brand-mark.css">
+<link rel="stylesheet" href="neon-sign.css">
+<link rel="stylesheet" href="hunt.css">
+<link rel="stylesheet" href="surprises.css">
+<link rel="stylesheet" href="trace-cards.css">
+<link rel="stylesheet" href="night.css">
+<link rel="stylesheet" href="ticket.css">
+<link rel="stylesheet" href="applause.css">
+<link rel="stylesheet" href="rumi.css">
+</head>
+<body>
+<nav>
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="brand-smile" aria-hidden="true"><svg viewBox="0 0 64 32" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"><path d="M4 5 Q32 34 60 5"/><path d="M17.5 10.4 L16 19"/><path d="M32 15.8 L32 27.4"/><path d="M46.5 10.4 L48 19"/></svg></span>Ceaseless Studio</a>
+    <a class="link" href="index.html">Foyer</a>
+    <a class="link" href="collages.html">Collages</a>
+    <a class="link" href="ceaseless-bot.html">Ceaseless Bot</a>
+    <a class="link" href="maria.html">Maria</a>
+    <a class="link on" href="rumi.html">Rumi</a>
+    <button class="night-toggle" type="button" aria-pressed="false" aria-label="Night mode" title="Night mode">☾</button>
+  </div>
+  <div class="progress" aria-hidden="true"></div>
+</nav>
+
+<main class="wrap">
+  <header class="hero">
+    <h1>Rumi</h1>
+    <p class="lead">The voice of F60 Collection on its Discord server.<br>
+      Голос F60 Collection на её Discord-сервере.</p>
+    <svg class="grin" viewBox="0 0 200 84" aria-hidden="true" focusable="false">
+      <path class="line" pathLength="100" d="M22 20 C 46 74, 154 74, 178 20"></path>
+      <path class="tick" d="M62 46 v16"></path>
+      <path class="tick" d="M100 58 v14"></path>
+      <path class="tick" d="M138 46 v16"></path>
+    </svg>
+
+    <aside class="page-sign" role="note">
+      <div class="sign-mount" aria-hidden="true"></div>
+      <div class="neon-sign neon-sign--rumi neon-sign--framed">
+        <p class="sign-plate">Cassette keeper</p>
+        <p class="sign-line">the tape is rewound.</p>
+        <p class="sign-line">sit down, you&#8217;re on.</p>
+        <p class="sign-sign">Rumi</p>
+      </div>
+    </aside>
+  </header>
+
+  <div class="divider">&#9670; &#9671; &#9670; &#9671; &#9670;</div>
+
+  <section class="reveal">
+    <figure class="rumi-still">
+      <img src="assets/f60/rumi.webp" srcset="assets/f60/rumi-720.webp 720w, assets/f60/rumi.webp 1400w" sizes="(max-width: 720px) 92vw, 760px" width="1400" height="960" alt="Rumi in her back room, a wall of old televisions behind her" loading="lazy">
+      <figcaption>Rumi &middot; F60 Collection <span>the back room, after the tapes have run</span></figcaption>
+    </figure>
+
+    <p>Rumi is not a help desk with a name on the plate. She is a person who happens to keep the place, and she answers like one: in her own voice, in the language you wrote in, and sometimes not with words at all.</p>
+    <p class="ru">Руми не справочная с именем на табличке. Она человек, который держит это место, и отвечает как человек: своим голосом, на том языке, на котором к ней обратились, - а иногда не словами.</p>
+  </section>
+
+  <section class="reveal">
+    <h2>For everyone / Для всех</h2>
+    <div class="cmd">
+      <code>/help</code>
+      <p>The commands any member can use, with no staff rights: the card lists only those. Visible to you alone.</p>
+      <p class="ru">Команды, доступные любому участнику, без особых прав: в карточке только они. Видно только вам.</p>
+    </div>
+    <div class="cmd">
+      <code>/ping</code>
+      <p>Is the studio alive: ping, uptime and errors since the last start.</p>
+      <p class="ru">Жива ли студия: пинг, аптайм и ошибки с момента запуска.</p>
+    </div>
+    <div class="cmd">
+      <code>/rumi</code><span class="opts">[kind]</span>
+      <p>A line from Rumi or one of her topics for a conversation. <b>kind</b> picks one; leave it empty for a random one.</p>
+      <p class="ru">Реплика Руми или её тема для разговора. <b>kind</b> выбирает тип, пусто - случайно.</p>
+    </div>
+    <div class="cmd">
+      <code>/canon</code><span class="opts">[section] [stage]</span>
+      <p>The author&#8217;s canon for Rumi: who she is, how she talks, the six relationship stages and the rules for writing her. <b>section</b> picks one part, <b>stage</b> picks one stage from 0 to 5.</p>
+      <p class="ru">Канон Руми от автора: кто она, как говорит, шесть этапов отношений и правила, по которым её пишут. <b>section</b> выбирает раздел, <b>stage</b> - этап с 0 по 5.</p>
+    </div>
+    <div class="cmd">
+      <code>/talk</code><span class="opts">[text] [reset]</span>
+      <p>Talk to Rumi: she answers as herself, a person and not an assistant, and remembers the last few things you told her. <b>reset</b> makes her forget you. She answers in the language you wrote in - Russian, English or Chinese. While the line is on pause she only says so.</p>
+      <p class="ru">Поговорить с Руми: отвечает как она сама - живой человек, а не ассистент, - и помнит последние фразы. <b>reset</b> - забыть прошлое знакомство. Отвечает на том языке, на котором к ней обратились: по-русски, по-английски или по-китайски. Пока болталка на паузе, она так и говорит.</p>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <h2>A ping instead of a command / Пинг вместо команды</h2>
+    <div class="cmd">
+      <code>@Rumi</code><span class="opts">mention or reply</span>
+      <p>Mention her in any channel, or answer one of her messages, and she replies right there, in character. DMs are off.</p>
+      <p class="ru">Упомяни её в любом канале или ответь на любое её сообщение - она ответит там же, в характере. В личке не отвечает.</p>
+    </div>
+    <div class="cmd">
+      <code>2%</code><span class="opts">per message</span>
+      <p>Now and then she joins a conversation nobody invited her to: rarely, once per channel per quarter of an hour, never in announcements, and never pushing in on someone who is already talking to another person.</p>
+      <p class="ru">Иногда она встревает в разговор, куда её не звали: редко, не чаще раза в 15 минут в канал, никогда в объявлениях и не влезает к тем, кто обращается к кому-то другому.</p>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <h2>Gestures / Жесты</h2>
+    <p>She does not always answer with words. A ping may get a reaction - her own server emoji or a plain one - and sometimes that reaction is the whole answer. When she does write, a sticker from her studio may ride along.</p>
+    <p class="ru">Она не всегда отвечает словами. На пинг может прийти реакция - её собственный эмодзи сервера или обычный, - и иногда реакция и есть весь ответ. Когда пишет, к ответу может приехать стикер её студии.</p>
+  </section>
+
+  <section class="reveal">
+    <h2>Studio tools / Пульт студии</h2>
+    <div class="perm">Manage Messages / Управлять сообщениями</div>
+    <div class="cmd">
+      <code>/say</code><span class="opts">[channel] [image]</span>
+      <p>Send a message as Rumi. A form opens for the text; <b>image</b> attaches a file, <b>channel</b> sends it somewhere else.</p>
+      <p class="ru">Отправить сообщение от имени Руми. Текст вводится в форме; <b>image</b> прикрепляет файл, <b>channel</b> отправляет в другой канал.</p>
+    </div>
+    <div class="cmd">
+      <code>/embed</code><span class="opts">[channel] [image]</span>
+      <p>Post a card as Rumi: title, text, colour in hex, image link and footer, all optional. <b>image</b> puts the file inside the card.</p>
+      <p class="ru">Карточка от имени Руми: заголовок, текст, цвет в hex, ссылка на картинку и подпись - всё необязательно. <b>image</b> кладёт файл внутрь карточки.</p>
+    </div>
+    <div class="cmd">
+      <code>/edit</code><span class="opts">message_link [image]</span>
+      <p>Fix a message Rumi already sent: right-click it, Copy Message Link and paste it here. Only her own messages can be edited.</p>
+      <p class="ru">Исправить сообщение, которое Руми уже отправила: ПКМ по сообщению, «Копировать ссылку на сообщение» и вставить сюда. Правятся только её сообщения.</p>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <h2>Admin help / Админская помощь</h2>
+    <div class="perm">Administrator / Администратор</div>
+    <div class="cmd">
+      <code>/help-adm</code>
+      <p>The staff commands and the right each one needs, grouped by right: Manage Server, Manage Messages. Only administrators can open it.</p>
+      <p class="ru">Команды для своих и право, которое нужно каждой, сгруппировано по правам: Manage Server, Manage Messages. Открывается только администраторам.</p>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <h2>The bill / Счёт</h2>
+    <div class="perm">Owner only / Только владельцу</div>
+    <div class="cmd">
+      <code>/spend</code>
+      <p>What the talking costs: questions answered, tokens in and out, the estimate in dollars, how many of today&#8217;s questions are used and left, and, when the provider allows it, what is left on the key. Ephemeral, so the numbers stay with you.</p>
+      <p class="ru">Сколько стоит болталка: сколько вопросов, сколько токенов на вход и выход, оценка в долларах, сколько вопросов за сегодня потрачено и осталось, и, если провайдер позволяет, остаток на ключе. Видно только вам.</p>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <h2>Where she lives / Где она живёт</h2>
+    <p>The bot keeps the Discord side of F60 Collection: the roles, the order, the spoiler line. The collection itself is three tapes and one back room.</p>
+    <p class="ru">Бот держит Discord-сторону F60 Collection: роли, порядок, линию спойлеров. Сама коллекция - три кассеты и одна задняя комната.</p>
+    <div class="buttons">
+      <a class="btn primary" href="https://f60.f60.workers.dev/">Visit F60 Collection</a>
+      <a class="btn" href="https://bezdargames.itch.io/f60-collection">itch.io</a>
+      <a class="btn" href="https://discord.gg/6KAxhs9cD2">Discord</a>
+    </div>
+  </section>
+</main>
+
+<footer>&#9670; the grin stays on, the <a class="footer-cage" href="404.html">cage</a> never opens &#9670; &middot; <a href="index.html">back to the stage</a></footer>
+
+<div class="atmosphere" aria-hidden="true">
+  <div class="glow"></div>
+  <div class="beam beam-a"></div>
+  <div class="beam beam-b"></div>
+  <div class="haze"></div>
+  <canvas class="dust"></canvas>
+</div>
+<div class="grain" aria-hidden="true"></div>
+<div class="torch" aria-hidden="true"></div>
+<script src="site.js" defer></script>
+</body>
+</html>
