@@ -17,6 +17,7 @@ The source of the Ceaseless Studio website: a static page set served by GitHub P
 | `index.html` | The foyer (the home page): live hero (medallion, stage light, name), who's behind the mask, the main project, neon backstage signs, the backstage wall of Telegram posters, other acts, tools and languages, the club flyer, the fortune deck |
 | `ceaseless-bot.html` | **Ceaseless Bot** - the backstage of a modeling agency: contracts, reaction roles, early builds, reports and publishing, framed by Russian and English backstage signs |
 | `maria.html` | **Maria** - Cease's personal assistant: cards, greetings, proof approvals and publishing |
+| `rumi.html` | **Rumi** - the voice of F60 Collection on its Discord server: lines, canon, live talk, pings instead of commands, gestures, studio cards and the bill |
 | `driven-by-desire.html` | **Driven By Desire** - the visual novel: story, cast cards, art, an 18+ after-hours gallery, build stats and links, with a gold Main Stage plaque under the key art |
 | `404.html` | The empty cage: a missing page, a note left between the bars and the way back to the stage |
 | `collages.html` | **Collages** - every poster from the Telegram feed, hung on the backstage wall, each opening into a lightbox with the caption that went with it |
@@ -33,7 +34,8 @@ The source of the Ceaseless Studio website: a static page set served by GitHub P
 | `hunt.css` | Five neon OPEN signs hidden across the pages and a five-tube counter for the ones you lit |
 | `surprises.css` | Konami-code glitch and the whisper on a long idle |
 | `contract.css` | The performers agreement on the bot page: paper, terms, a canvas to sign in blood and a faint smile watermark |
-| `maria-chat.css` | The demo chat with Maria on her page: purple panel, bubbles, quick asks and a typing indicator |
+| `maria-chat.css` | The demo chat with Maria on her page (purple panel, bubbles, quick asks, a typing indicator) and the violet light of the page itself |
+| `rumi.css` | Rumi's page: her blue cassette-keeper sign, the studio still from F60 Collection and the cold blue light of the page |
 | `fortune.css` | The fortune card: a face-down deck with a thin neon edge that flips on click and answers in English and Russian |
 | `flyer.css` | The club flyer at the bottom of the home page: a smoked-acrylic neon lightbox, a metal bracket, a small smile stamp, the track lyric and the stuck chorus |
 | `collages.css` | The backstage wall: poster frames on metal clips, a slight tilt, numbered captions and the lightbox |
@@ -52,6 +54,8 @@ The source of the Ceaseless Studio website: a static page set served by GitHub P
 </p>
 
 The heart of the studio. Ceaseless Studio keeps order on the visual novel's Discord server, where both bots work: Ceaseless Bot (contracts, supporter roles, reports) and Maria (Cease's personal assistant). Supporters rise through five tiers: Newcomer, Wanderer, Rising Star, Seducer, Master of Desire.
+
+Rumi works on the other side of the studio: she keeps the Discord of F60 Collection, the second project.
 
 ## Other acts
 

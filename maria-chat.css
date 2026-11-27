@@ -188,8 +188,8 @@
   padding: 10px 16px;
   border: 0;
   border-radius: 10px;
-  background: linear-gradient(180deg, #a33224, #7c2419);
-  color: #f5e9e4;
+  background: linear-gradient(180deg, #7b4bd0, #532d92);
+  color: #f3ecff;
   font-family: inherit;
   font-size: .88rem;
   letter-spacing: .08em;
@@ -198,7 +198,7 @@
 }
 
 .chat-send:hover {
-  background: linear-gradient(180deg, #c0402f, #92291c);
+  background: linear-gradient(180deg, #9570e0, #6a3fb4);
 }
 
 .chat-hint {
@@ -236,4 +236,71 @@ html.night .msg--maria {
   .chat-state {
     display: none;
   }
+}
+
+/* ==========================================================================
+   Свой свет Марии: страница окрашена в её фиолетовый
+   Меняются только переменные и цветные слои задника; каркас общий.
+   ========================================================================== */
+
+body.theme-maria {
+  --bg: #0a0710;
+  --panel: #150f20;
+  --fg: #ece6f5;
+  --muted: #958aa3;
+  --line: #382c49;
+  --accent: #6b3fb0;
+  --accent-hi: #b98cff;
+  background:
+    radial-gradient(ellipse at 50% -10%, #2b1742 0%, transparent 55%),
+    radial-gradient(ellipse 90% 55% at 50% 105%, rgba(107, 63, 176, .20), transparent 72%),
+    var(--bg);
+}
+
+body.theme-maria nav { background: rgba(10, 7, 16, .86); }
+
+body.theme-maria .glow {
+  background: radial-gradient(ellipse 60% 60% at 50% 40%, rgba(177, 116, 255, .42), rgba(177, 116, 255, 0) 70%);
+}
+
+body.theme-maria .haze {
+  background:
+    radial-gradient(ellipse 42% 60% at 30% 70%, rgba(203, 173, 255, .10), transparent 70%),
+    radial-gradient(ellipse 46% 55% at 68% 80%, rgba(150, 95, 240, .16), transparent 72%);
+}
+
+body.theme-maria .atmosphere::before,
+body.theme-maria .atmosphere::after {
+  background: repeating-linear-gradient(90deg, #120b1d 0 5px, #241539 5px 15px, #100a19 15px 21px);
+}
+
+body.theme-maria .torch {
+  background: radial-gradient(340px circle at var(--mx) var(--my), rgba(198, 160, 255, .12), rgba(198, 160, 255, 0) 65%);
+}
+
+body.theme-maria .progress {
+  background: linear-gradient(90deg, var(--accent), var(--accent-hi));
+}
+
+body.theme-maria .btn:not(.primary):hover {
+  background: rgba(107, 63, 176, .20);
+}
+
+/* ночь: тот же фиолетовый, но глуше */
+html.night body.theme-maria {
+  --bg: #05030a;
+  --panel: #0f0a18;
+  --fg: #d9d2e6;
+  --muted: #7c7289;
+  --line: #291f38;
+  --accent: #7d4fc4;
+  --accent-hi: #c4a2ff;
+  background:
+    radial-gradient(ellipse at 50% -10%, #1b0f2b 0%, transparent 55%),
+    radial-gradient(ellipse 90% 55% at 50% 105%, rgba(84, 49, 138, .16), transparent 72%),
+    var(--bg);
+}
+
+html.night body.theme-maria .glow {
+  background: radial-gradient(ellipse 60% 60% at 50% 40%, rgba(150, 95, 240, .34), rgba(150, 95, 240, 0) 70%);
 }
