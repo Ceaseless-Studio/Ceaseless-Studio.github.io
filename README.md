@@ -34,8 +34,8 @@ The source of the Ceaseless Studio website: a static page set served by GitHub P
 | `hunt.css` | Five neon OPEN signs hidden across the pages and a five-tube counter for the ones you lit |
 | `surprises.css` | Konami-code glitch and the whisper on a long idle |
 | `contract.css` | The performers agreement on the bot page: paper, terms, a canvas to sign in blood and a faint smile watermark |
-| `maria-chat.css` | The demo chat with Maria on her page: purple panel, bubbles, quick asks and a typing indicator |
-| `rumi.css` | Rumi's page: her blue cassette-keeper sign and the studio still from F60 Collection |
+| `maria-chat.css` | The demo chat with Maria on her page (purple panel, bubbles, quick asks, a typing indicator) and the violet light of the page itself |
+| `rumi.css` | Rumi's page: her blue cassette-keeper sign, the studio still from F60 Collection and the cold blue light of the page |
 | `fortune.css` | The fortune card: a face-down deck with a thin neon edge that flips on click and answers in English and Russian |
 | `flyer.css` | The club flyer at the bottom of the home page: a smoked-acrylic neon lightbox, a metal bracket, a small smile stamp, the track lyric and the stuck chorus |
 | `collages.css` | The backstage wall: poster frames on metal clips, a slight tilt, numbered captions and the lightbox |
